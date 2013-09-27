@@ -50,7 +50,7 @@ q RN 3
 
 LOOP 	CMP n,d
 		BLT ENDL
-		ADD q,#1
+		ADD q,#1 
 		SUB n,d
 		B LOOP
 	
