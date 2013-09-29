@@ -1,4 +1,4 @@
- 		 AREA  PYTH, CODE
+		 AREA  PYTH, CODE
 ; Main
 __main PROC
        EXPORT  __main         
@@ -22,16 +22,16 @@ x RN 4
 y RN 5
 		MOV a,#1
 		MOV b,#2
-		MOV c,#3
+		MOV c,#1
 		MOV x,#3
 		MOV y,#0
 
-		MUL a,a,x
-		MUL a,a,x
-		MUL b,b,x
-		ADD b,b,c
-		ADD y,a,b
-		
+		MUL a,a,x	;;a=3
+		MUL a,a,x	;;a=9
+		MUL b,b,x	;;b=6
+		ADD b,b,c	;;b=7
+		ADD y,a,b	;;16
+
 
 ; Assembly Code Below Here
 ; Assembly Code Above Here
@@ -53,7 +53,7 @@ LOOP 	CMP n,d
 		ADD q,#1 
 		SUB n,d
 		B LOOP
-	
+
 
 
 ; Assembly Code Below Here
@@ -61,5 +61,3 @@ LOOP 	CMP n,d
 ENDL	B ENDL
 		ENDP
 		END
-		
-		
