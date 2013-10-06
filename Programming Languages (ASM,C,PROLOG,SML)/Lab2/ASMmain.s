@@ -1,7 +1,8 @@
  AREA  PYTH, CODE
 ; Main
 __main PROC
-       EXPORT  __main         
+       EXPORT  __main    
+
 
 ;LAB2
 
@@ -21,20 +22,18 @@ __main PROC
 ;     a[j+1] = t;
 ;  } 
 
-AMAX RN 1
-a RN 2
-i RN 3
-j RN 4
-t RN 5
-k RN 6
-q RN 7
-
-
-				MOV AMAX,#100
-				MOV a,AMAX
-				MOV j,#0
+AMAX EQU 5
+TEST EQU 0
+a RN R2
+i RN R3
+j RN R4
+t RN R5
+q RN R6
 				
-OUTERLOOP		SUB i,AMAX,#1		;;first for loop ? assign the variable i with AMAX decremented by 1
+				LDR a,=AMAX
+				LDR j,=TEST
+
+OUTERLOOP		SUB i,a,#1			;;first for loop ? assign the variable i with AMAX decremented by 1
 				CMP i,#0			;;if i is less than or equal to 0 then 
 				BLE ENDL			;;branch to ENDL which ends the program else	
 				SUB i,i,#1			;;decrement i by 1
@@ -45,17 +44,17 @@ INNERLOOP						;;assign variable j 0
 				BGE ENDL			
 				ADD j,j,#1		;;increment j
 				B IFCONDITION
-			
+
 IFCONDITION			
 				LDR a,[j]				;;load contents of [j] into a
-				ADD k , j , #1			;;load value [j+1] after a [j]
-				LDR q,[k]				;;load contents of k into a
+				ADD q,j,#1				;;load value [j+1] after a [j]
+				;LDR q,[k]				;;load contents of k into a
 				CMP a,q					;;compare the content
 				BGE SWAP				;;if value is greater then branch to swap
 
-SWAP			STR t,[a]				;;store the lower value in t 
-				STR a,[k]
-				STR q,[t]
+SWAP			LDR t,[a]				;;load contents of [j] into T works
+				LDR a,[q]				;;store content of [a] into [j + 1] 
+				LDR q,[t]				;;store content of t into a[j+1]
 				B OUTERLOOP
 
 ; Assembly Code Below Here
