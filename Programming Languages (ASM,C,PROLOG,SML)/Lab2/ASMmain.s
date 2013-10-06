@@ -22,7 +22,7 @@ __main PROC
 ;     a[j+1] = t;
 ;  } 
 
-AMAX EQU 5
+AMAX EQU 100
 TEST EQU 0
 a RN R2
 i RN R3
