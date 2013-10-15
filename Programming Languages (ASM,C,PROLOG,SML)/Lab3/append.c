@@ -1,3 +1,7 @@
+//pwd is to find what directory you're in
+//ls displays all the files in the directory you're in
+// cd is for changing directory
+
 #include <stdio.h>
 #include <stdlib.h>
 
